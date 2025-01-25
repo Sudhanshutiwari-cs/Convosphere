@@ -32,7 +32,7 @@ const submitHandler = async (e) => {
   try {
     // Sends a POST request to the user registration API endpoint with the input data
     const res = await axios.post(
-      'http://localhost:8000/api/v1/user/login',
+      'https://convosphere-xczk.onrender.com/api/v1/user/login',
       input,
       {
         headers: {
