@@ -148,7 +148,7 @@ export const editProfile = async(req,res)=>{
 
     try {
         const UserId=req.id; //userId from middleware
-        const {bio,  gender}=req.body; //bio and gender from frontend
+        const {bio,  gender ,username}=req.body; //bio and gender from frontend
         const profilePicture=req.file; //profile picture from frontend
         let cloudResponse; //cloudinary response
         //if profile picture is present then upload it to cloudinary
@@ -165,6 +165,7 @@ export const editProfile = async(req,res)=>{
             })
         };
         //update user bio and gender
+        if(username) user.username=username;
         if(bio) user.bio=bio;
         if(gender) user.gender=gender;
         //update user profile picture
