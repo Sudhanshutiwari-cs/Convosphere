@@ -67,7 +67,7 @@ useEffect(()=>{
   return (
     <>
       {/* Header section with the application title */}
-      <div className='header items-center pb-5 text-4xl font-bold'>ConvoSphere</div> 
+      <div className='header items-center pb-5 text-4xl font-bold text-center'>ConvoSphere</div> 
       {/* Container for the signup form, centered and styled */}
       <div className='flex justify-center items-center '>
         {/* Signup form with shadow and padding */}
