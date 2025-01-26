@@ -33,7 +33,7 @@ const Prolfile = () => {
           <section>
             <div className='flex flex-col gap-5'>
               <div className='flex items-center gap-3'>
-                <span className='font-semibold w-6'>{userProfile?.username}</span>
+                <span className='font-semibold w-fit'>{userProfile?.username}</span>
                 {
                   isLoggedInUserProfile ? (
                     <>
