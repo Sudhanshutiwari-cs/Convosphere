@@ -14,6 +14,7 @@ const ChatPage = () => {
     const [textMessage, setTextMessage] = useState("");
     const { user, suggestedUsers , selectedUser } = useSelector(store => store.auth);
     const{onlineUsers, messages}=useSelector(store=>store.chat);
+    const isOnline = onlineUsers.includes(suggestedUsers?._id);
     const dispatch=useDispatch();
     const sendMessageHandler = async (receiverId) => {
         try {
@@ -46,7 +47,7 @@ const ChatPage = () => {
                 <div className='overflow-y-auto  h-[80vh]'>
                     {
                         suggestedUsers?.map((suggestedUser) => {
-                            const isOnline = onlineUsers.includes(suggestedUser?._id);
+                            
                             return (
                                 <div key={suggestedUser._id} onClick={()=>dispatch(setSelectedUser(suggestedUser))} className='flex items-center gap-3 p-3 hover:bg-gray-100 rounded cursor-pointer'>
                                     <Avatar className='w-14 h-14'>
