@@ -16,6 +16,7 @@ const EditProfile = () => {
     const { user } = useSelector(store => store.auth);
     const [loading, setLoading] = useState(false);
     const [input, setInput] = useState({
+        username: user?.username,
         profilePicture: user?.profilePicture,
         bio:user?.bio,
         gender:user?.gender
@@ -34,6 +35,7 @@ const EditProfile = () => {
     }
     const editProfileHandler = async (e) => {
         const formData = new FormData();
+        formData.append('username', input.username);
         formData.append('bio', input.bio);
         formData.append('gener', input.gender);
         if(input.profilePicture) {
@@ -50,6 +52,7 @@ const EditProfile = () => {
             if(res.data.success){
                 const updatedUserData={
                     ...user,
+                    username:res.data.user?.username,
                     bio:res.data.user?.bio,
                     profilePicture:res.data.user?.profilePicture,
                     gender:res.data.user?.gender
@@ -87,6 +90,15 @@ const EditProfile = () => {
                     </div>
                     <input ref={imageRef} onChange={fileChangeHandler} type="file" className='hidden' />
                     <Button onClick={() => imageRef.current.click()} className='bg-[#0095F6] h-8 hover:bg-[#327dae]'>Change Profile Photo</Button>
+                </div>
+                <div>
+                    <h1 className='font-semibold text-xl mb-2'>Username</h1>
+                    <input
+                        type='text'
+                        value={input.username}
+                        onChange={(e) => setInput({...input, username: e.target.value })}
+                        className='focus-visible:ring-transparent'
+                    />
                 </div>
                 <div>
                     <h1 className='font-semibold text-xl mb-2'>Bio</h1>
