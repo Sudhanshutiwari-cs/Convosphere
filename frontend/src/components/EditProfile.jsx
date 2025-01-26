@@ -97,7 +97,7 @@ const EditProfile = () => {
                         type='text'
                         value={input.username}
                         onChange={(e) => setInput({...input, username: e.target.value })}
-                        className='focus-visible:ring-transparent'
+                        className='w-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0095F6] focus:ring-opacity-50'
                     />
                 </div>
                 <div>
